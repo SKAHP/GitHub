@@ -1,0 +1,21 @@
+version: 2
+registries:
+  git-gitlab-com:
+    type: git
+    url: https://gitlab.com
+    username: skahp
+    password: "${{secrets.GIT_GITLAB_COM_PASSWORD}}"
+
+updates:
+- package-ecosystem: npm
+  directory: "/"
+  schedule:
+    interval: daily
+  open-pull-requests-limit: 10
+  ignore:
+  - dependency-name: react-scripts
+    versions:
+    - 4.0.1
+    - 4.0.2
+  registries:
+  - git-gitlab-com
